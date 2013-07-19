@@ -29,6 +29,9 @@ group :test do
   gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i  
   gem 'win32console', '1.3.0'
   gem 'spork', '0.9.2'
+  #Just for fun
+  gem 'cucumber-rails', '1.2.1', :require => false
+  gem 'database_cleaner', '0.7.0'
 end
 
 group :production do
