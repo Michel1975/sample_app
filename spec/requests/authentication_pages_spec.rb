@@ -53,6 +53,15 @@ describe "Authentication" do
 
 describe "authorization" do
     
+    describe "accessible attributes" do      
+      it "should not allow access to admin" do
+        expect do
+          User.new(admin: true)
+        end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end    
+    end
+
+
     describe "as non-admin user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
@@ -81,6 +90,8 @@ describe "authorization" do
           specify { response.should redirect_to(signin_path) }
         end
       end
+      it { should_not have_link('Profile') }
+      it { should_not have_link('Settings') }
     end
 
     describe "as wrong user" do
