@@ -10,5 +10,5 @@
  *
  * Se mere info her: http://guides.rubyonrails.org/asset_pipeline.html
  *= require_self
- *= require_tree .
+ *= require_tree . 
  */
